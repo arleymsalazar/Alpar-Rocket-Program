@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Chaves RPG - Card Game</title>
+
+    <style>
+
+        body {
+
+            background-color: #1a1a1a;
+
+            background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');
+
+            color: #f1dca7;
+
+            font-family: 'Georgia', serif;
+
+            margin: 0;
+
+            padding: 20px;
+
+        }
+
+  
+        header {
+
+            text-align: center;
+
+            border-bottom: 2px solid #b8860b;
+
+            margin-bottom: 20px;
+
+            padding-bottom: 10px;
+
+        }
+
+
+
+        h1 {
+
+            color: #ffcc00;
+
+            text-shadow: 2px 2px #000;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .search-container {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+
+
+
+        .deck-container {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 30px;
+
+        }
+
+
+
+        .rpg-card {
+
+            width: 260px;
+
+            height: 400px;
+
+            background: linear-gradient(145deg, #3d2b1f, #1a120b);
+
+            border: 8px solid #b8860b;
+
+            border-radius: 15px;
+
+            box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+
+            transition: transform 0.3s;
+
+            overflow: hidden;
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+
+        .hidden {
+
+            display: none !important;
+
+        }
+
+
+
+        .rpg-card:hover {
+
+            transform: translateY(-15px) rotate(2deg);
+
+            border-color: #ffd700;
+
+        }
+
+
+
+        .card-header {
+
+            padding: 10px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background: rgba(0,0,0,0.4);
+
+        }
+
+
+
+        .card-name {
+
+            font-weight: bold;
+
+            font-size: 1.1em;
+
+            color: #fff;
+
+            text-shadow: 1px 1px #000;
+
+        }
+
+
+
+        .card-img {
+
+            width: 100%;
+
+            height: 180px;
+
+            border-bottom: 3px solid #5c4033;
+
+            object-fit: cover;
+
+            background-color: #000;
+
+        }
+
+
+
+        .card-body {
+
+            padding: 15px;
+
+            text-align: center;
+
+            flex-grow: 1;
+
+        }
+
+
+
+        .card-type {
+
+            font-size: 0.7em;
+
+            text-transform: uppercase;
+
+            color: #b8860b;
+
+            margin-bottom: 8px;
+
+            border-bottom: 1px solid #5c4033;
+
+        }
+
+
+
+        .card-desc {
+
+            font-size: 0.85em;
+
+            color: #ddd;
+
+            font-style: italic;
+
+        }
+
+
+
+        .card-stats {
+
+            display: flex;
+
+            justify-content: space-around;
+
+            background: #b8860b;
+
+            color: #000;
+
+            font-weight: bold;
+
+            padding: 5px 0;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<header>
+
+    <h1>⚔️ CHAVES: THE GENTALHA CHRONICLES ⚔️</h1>
+
+    <p>Colecione os heróis e vilões da Vila</p>
+
+</header>
+
+
+
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4" id="listaPersonagens">
+
+        </div>
+
+</div>
+
+
+
+<div class="deck-container">
+ 
+    <div class="search-container">
+
+    <input type="text" id="searchInput" placeholder="Pesquisar personagem..." 
+
+           style="padding: 10px; width: 200px; border-radius: 5px; border: 2px solid #b8860b; background: #2a1b0a; color: #f1dca7;">
+
+        </div>
+   
+
+    <article class="rpg-card">
+
+        <div class="card-header">
+
+            <span class="card-name">Chaves</span>
+
+            <span class="card-cost">⭐ 1</span>
+
+        </div>
+
+        <img src="imagens/chaves.jpeg" class="card-img" alt="Chaves">
+
+        <div class="card-body">
+
+            <div class="card-type">Lutador / Órfão</div>
+
+            <p class="card-desc">"Ninguém tem paciência comigo". Recebe bônus de esquiva se estiver dentro de um barril.</p>
+
+        </div>
+
+        <div class="card-stats">
+
+            <div class="stat-box"><span class="stat-label">ATK</span> 200</div>
+
+            <div class="stat-box"><span class="stat-label">DEF</span> 400</div>
+
+            <div class="stat-box"><span class="stat-label">HP</span> 300</div>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="rpg-card">
+
+        <div class="card-header">
+
+            <span class="card-name">Seu Madruga</span>
+
+            <span class="card-cost">⭐ 3</span>
+
+        </div>
+
+        <img src="imagens/madruga.jpeg" class="card-img" alt="Madruga">
+
+        <div class="card-body">
+
+            <div class="card-type">Ladino / Mestre de Bicos</div>
+
+            <p class="card-desc">Habilidade passiva: Fuga do Aluguel. Imune a ataques do tipo "Cobrança".</p>
+
+        </div>
+
+        <div class="card-stats">
+
+            <div class="stat-box"><span class="stat-label">ATK</span> 450</div>
+
+            <div class="stat-box"><span class="stat-label">DEF</span> 250</div>
+
+            <div class="stat-box"><span class="stat-label">HP</span> 350</div>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="rpg-card">
+
+        <div class="card-header">
+
+            <span class="card-name">Dona Florinda</span>
+
+            <span class="card-cost">⭐ 4</span>
+
+        </div>
+
+        <img src="imagens/florinda.jpeg" class="card-img" alt="Florinda">
+
+        <div class="card-body">
+
+            <div class="card-type">Paladina / Nobreza</div>
+
+            <p class="card-desc">Grito de Guerra: "Gentalha!". Causa atordoamento imediato em Seus Madrugas.</p>
+
+        </div>
+
+        <div class="card-stats">
+
+            <div class="stat-box"><span class="stat-label">ATK</span> 550</div>
+
+            <div class="stat-box"><span class="stat-label">DEF</span> 650</div>
+
+            <div class="stat-box"><span class="stat-label">HP</span> 600</div>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="rpg-card">
+
+        <div class="card-header">
+
+            <span class="card-name">Godinez</span>
+
+            <span class="card-cost">⭐ 1</span>
+
+        </div>
+
+        <img src="imagens/guidinez.jpeg" class="card-img" alt="Godinez">
+
+        <div class="card-body">
+
+            <div class="card-type">O Bardo Distraído</div>
+
+            <p class="card-desc">Vácuo mental, ignorando a batalha. Imunidade a CC (Crowd Control), habilidades aleatórias.</p>
+
+        </div>
+
+        <div class="card-stats">
+
+            <div class="stat-box"><span class="stat-label">ATK</span> 250</div>
+
+            <div class="stat-box"><span class="stat-label">DEF</span> 600</div>
+
+            <div class="stat-box"><span class="stat-label">HP</span> 300</div>
+
+        </div>
+
+    </article>
+
+
+
+      <article class="rpg-card">
+
+        <div class="card-header">
+
+            <span class="card-name">Dona Clotilde</span>
+
+            <span class="card-cost">⭐ 5</span>
+
+        </div>
+
+        <img src="imagens/clotilde.jpeg" class="card-img" alt="Clotilde">
+
+        <div class="card-body">
+
+            <div class="card-type">Bruxa / Alquimista</div>
+
+            <p class="card-desc">Consegue invocar o cão Satanás para lutar ao seu lado por 3 turnos.</p>
+
+        </div>
+
+        <div class="card-stats">
+
+            <div class="stat-box"><span class="stat-label">ATK</span> 500</div>
+
+            <div class="stat-box"><span class="stat-label">DEF</span> 550</div>
+
+            <div class="stat-box"><span class="stat-label">HP</span> 550</div>
+
+        </div>
+
+    </article>
+
+   
+
+    <article class="rpg-card">
+
+        <div class="card-header">
+
+            <span class="card-name">Chiquinha</span>
+
+            <span class="card-cost">⭐ 3</span>
+
+        </div>
+
+        <img src="imagens/chiquinha.jpeg" class="card-img" alt="Chiquinha">
+
+        <div class="card-body">
+
+            <div class="card-type">A Estrategista do Caos</div>
+
+            <p class="card-desc">Alta inteligência, habilidades de controle de grupo e armadilhas.</p>
+
+        </div>
+
+        <div class="card-stats">
+
+            <div class="stat-box"><span class="stat-label">ATK</span> 300</div>
+
+            <div class="stat-box"><span class="stat-label">DEF</span> 500</div>
+
+            <div class="stat-box"><span class="stat-label">HP</span> 250</div>
+
+        </div>
+
+    </article>
+
+   
+
+    <article class="rpg-card">
+
+        <div class="card-header">
+
+            <span class="card-name">Quico</span>
+
+            <span class="card-cost">⭐ 3</span>
+
+        </div>
+
+        <img src="imagens/quico.jpeg" class="card-img" alt="Quico">
+
+        <div class="card-body">
+
+            <div class="card-type">O Suporte Rico</div>
+
+            <p class="card-desc">A bola gigante e o apito, símbolos de sua possessividade. Habilidades que "copiam" buffs, alta "Riqueza".</p>
+
+        </div>
+
+        <div class="card-stats">
+
+            <div class="stat-box"><span class="stat-label">ATK</span> 350</div>
+
+            <div class="stat-box"><span class="stat-label">DEF</span> 450</div>
+
+            <div class="stat-box"><span class="stat-label">HP</span> 400</div>
+
+        </div>
+
+    </article>
+
+
+
+     <article class="rpg-card">
+
+        <div class="card-header">
+
+            <span class="card-name">Nhonho</span>
+
+            <span class="card-cost">⭐ 4</span>
+
+        </div>
+
+        <img src="imagens/nhonho.jpeg" class="card-img" alt="Nhonho">
+
+        <div class="card-body">
+
+            <div class="card-type">O Bárbaro Peso-Pesado</div>
+
+            <p class="card-desc">O gigante de riqueza herdada, Maior vida do jogo, ataques que causam "Impacto".</p>
+            <div class="card-stats">
+            <div class="stat-box"><span class="stat-label">ATK</span> 700</div>
+            <div class="stat-box"><span class="stat-label">DEF</span> 400</div>
+            <div class="stat-box"><span class="stat-label">HP</span> 900</div>
+        </div>
+    </article>
+
+<article class="rpg-card">
+        <div class="card-header">
+            <span class="card-name">Seu Barriga</span>
+            <span class="card-cost">⭐ 4</span>
+        </div>
+        <img src="imagens/barriga.jpeg" class="card-img" alt="Barriga">
+        <div class="card-body">
+            <div class="card-type">O Paladino Pesado</div>
+            <p class="card-desc">Dual Wield Shields, aluguel e pasta de despejo, Regeneração de vida ("Coleta"), alta resistência.</p>
+        </div>
+        <div class="card-stats">
+            <div class="stat-box"><span class="stat-label">ATK</span> 400</div>
+            <div class="stat-box"><span class="stat-label">DEF</span> 700</div>
+            <div class="stat-box"><span class="stat-label">HP</span> 800</div>
+        </div>
+    </article>
+
+     <article class="rpg-card">
+        <div class="card-header">
+            <span class="card-name">Professor Girafales</span>
+            <span class="card-cost">⭐ 4</span>
+        </div>
+        <img src="imagens/girafales.jpeg" class="card-img" alt="Girafales">
+        <div class="card-body">
+            <div class="card-type">O Mago Educador</div>
+            <p class="card-desc">Cafezinho de Dona Florida aumenta a potência da sua "varinha mágica", Magia de suporte e buffs de área (como "Silêncio!").</p>
+        </div>
+        <div class="card-stats">
+            <div class="stat-box"><span class="stat-label">ATK</span> 600</div>
+            <div class="stat-box"><span class="stat-label">DEF</span> 350</div>
+            <div class="stat-box"><span class="stat-label">HP</span> 300</div>
+        </div>
+    </article>
+</div>
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.rpg-card');
+
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        cards.forEach(card => {
+            const characterName = card.querySelector('.card-name').textContent.toLowerCase();
+            
+            // Verifica se o nome do personagem contém o que foi digitado
+            if (characterName.includes(searchTerm)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+</script>
+</body>
+</html>
